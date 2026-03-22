@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes } from '_react';
 import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 
