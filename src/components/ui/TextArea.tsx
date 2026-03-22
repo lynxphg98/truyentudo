@@ -1,5 +1,5 @@
 import React, { TextareaHTMLAttributes } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
