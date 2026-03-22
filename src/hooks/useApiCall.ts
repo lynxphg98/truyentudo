@@ -26,7 +26,7 @@ export const useApiCall = <T,>(): UseApiCallReturn<T> => {
         const result = await fn();
         setData(result);
         return result;
-      } catch (err: any) {
+      } catch (err: unkown) {
         const apiError = handleApiError(err);
         setError(apiError);
         console.error('🚨 API Error:', apiError);
