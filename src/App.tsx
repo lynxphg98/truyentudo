@@ -10,10 +10,10 @@ import ReactMarkdown from 'react-markdown';
 
 // ✅ Import từ các utilities mới
 import { cn } from '@/utils/cn';
-import { handleApiError } from '@/utils/errorHandler';
-import StorageManager from '@/utils/storage';
-import { useApiCall } from '@/hooks/useApiCall';
-import { useAuth } from '@/hooks/useAuth';
+import { handleApiError } from '@/util/errorHandler';
+import StorageManager from '@/util/storage';
+import { useApiCall } from '@/hook/useApiCall';
+import { useAuth } from '@/hook/useAuth';
 import { AuthProvider } from '@/context/AuthContext';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Button } from '@/components/ui/Button';
