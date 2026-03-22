@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, X } from 'lucide-react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/Button';
 import { Alert } from '@/components/ui/Alert';
-import StorageManager from '@/utils/storage';
+import StorageManager from '@/util/storage';
 
 interface ProfileModalProps {
   isOpen: boolean;
