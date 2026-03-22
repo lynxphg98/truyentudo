@@ -102,7 +102,7 @@ class StorageManager {
         try {
           const item = localStorage.getItem(key);
           if (item) {
-            const data: StorageData<any> = JSON.parse(item);
+            const data: StorageData<unkown> = JSON.parse(item);
             if (data.ttl && Date.now() - data.timestamp > data.ttl) {
               localStorage.removeItem(key);
               cleared++;
@@ -142,7 +142,7 @@ class StorageManager {
    * Export all app data as JSON
    */
   static exportData(): string {
-    const data: Record<string, any> = {};
+    const data: Record<string, unkown> = {};
     const keys = Object.keys(localStorage);
 
     keys.forEach((key) => {
