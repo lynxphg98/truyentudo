@@ -2,9 +2,9 @@
 import React, { useState, useEffect, _ReactNode } from '_react';
 import {
   Plus, BookOpen, Edit3, Trash2, User, Users, Settings,
-  Download, Upload, Languages, HelpCircle, Moon, Sun, Pencil,
-  ChevronLeft, Sparkles, Key, Camera, X, Check, AlertTriangle, Wifi,
-  Feather, RefreshCw
+  Download, _Upload, _Languages, _HelpCircle, Moon, Sun, _Pencil,
+  ChevronLeft, Sparkles, Key, _Camera, _X, _Check, _AlertTriangle, _Wifi,
+  Feather, _RefreshCw
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
@@ -20,7 +20,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { TextArea } from '@/components/ui/TextArea';
 import { Alert } from '@/components/ui/Alert';
-import { Skeleton, StoryCardSkeleton } from '@/components/ui/Skeleton';
+import { _Skeleton, _StoryCardSkeleton } from '@/components/ui/Skeleton';
 import { ApiDashboardModal } from '@/components/modals/ApiDashboardModal';
 import { ProfileModal } from '@/components/modals/ProfileModal';
 
@@ -28,7 +28,7 @@ import { ProfileModal } from '@/components/modals/ProfileModal';
 import type { Story, ApiKeyConfig } from '@/types';
 
 // --- CONSTANTS ---
-const AI_PROVIDERS = [
+const _AI_PROVIDERS = [
   {
     id: 'gemini',
     name: 'Google Gemini',
@@ -484,7 +484,7 @@ const AppContent = () => {
                       key={v}
                       variant={view === v ? 'primary' : 'secondary'}
                       size="md"
-                      onClick={() => setView(v as any)}
+                      onClick={() => setView(v as unkown)}
                       className="flex items-center gap-3 w-fit"
                     >
                       {v === 'stories' && <BookOpen className="w-4 h-4" />}
