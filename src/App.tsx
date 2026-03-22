@@ -119,7 +119,7 @@ const callAiApi = async (
 // --- MAIN APP CONTENT ---
 const AppContent = () => {
   const { user, theme, toggleTheme } = useAuth();
-  const { call: executeAiCall, loading: isProcessingAI, error: aiError } = useApiCall<string>();
+  const { call: executeAiCall, loading: isProcessingAI, error: _aiError } = useApiCall<string>();
 
   // State
   const [apiKeys, setApiKeys] = useState<ApiKeyConfig[]>([]);
