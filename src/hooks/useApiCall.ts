@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { handleApiError, ApiError } from '@/utils/errorHandler';
+import { handleApiError, ApiError } from '@/util/errorHandler';
 
 interface UseApiCallReturn<T> {
   data: T | null;
