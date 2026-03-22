@@ -54,7 +54,7 @@ export const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
     input.click();
   };
 
-  const handleSave = await using () => {
+  const handleSave = async () => {
     if (!name.trim()) {
       setAlert({
         type: 'warning',
