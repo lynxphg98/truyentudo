@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Camera, X } from 'lucide-react';
+import React, { useState, useEffect } from '_react';
+import { Camera, X } from 'lucide-react'
 import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/Button';
@@ -37,7 +37,7 @@ export const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
-    input.onchange = (e: any) => {
+    input.onchange = (e: unkown) => {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
@@ -54,7 +54,7 @@ export const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
     input.click();
   };
 
-  const handleSave = async () => {
+  const handleSave = await using () => {
     if (!name.trim()) {
       setAlert({
         type: 'warning',
