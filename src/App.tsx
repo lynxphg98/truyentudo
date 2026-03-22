@@ -9,7 +9,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 
 // ✅ Import từ các utilities mới
-import { cn } from '@/utils/cn';
+import { cn } from '@/util/cn';
 import { handleApiError } from '@/util/errorHandler';
 import StorageManager from '@/util/storage';
 import { useApiCall } from '@/hook/useApiCall';
