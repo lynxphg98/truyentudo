@@ -82,7 +82,7 @@ export const ProfileModal = ({ isOpen, onClose }: ProfileModalProps) => {
       setTimeout(() => {
         onClose();
       }, 1500);
-    } catch (error) {
+    } catch (_error) {
       setAlert({
         type: 'error',
         message: '❌ Có lỗi khi lưu hồ sơ',
