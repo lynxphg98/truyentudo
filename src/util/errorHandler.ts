@@ -45,7 +45,6 @@ const handleError = (error: AxiosError): ApiError => {
         shouldRetry: true,
       },
     };
-
     const defaultError: Omit<ApiError, 'statusCode'> = {
       code: 'SERVER_ERROR',
       message: '❌ Đã xảy ra sự cố. Vui lòng thử lại sau.',
