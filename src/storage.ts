@@ -4,7 +4,7 @@ export const storage = {
     const data = localStorage.getItem('stories');
     return data ? JSON.parse(data) : [];
   },
-  saveStories: (stories: any[]) => {
+  saveStories: (stories: unkown[]) => {
     localStorage.setItem('stories', JSON.stringify(stories));
   },
   getCharacters: () => {
