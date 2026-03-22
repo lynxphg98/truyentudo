@@ -191,7 +191,7 @@ const AppContent = () => {
         type: 'success',
         message: '✅ Lưu truyện thành công!',
       });
-    } catch (error) {
+    } catch (_error) {
       setAlertMessage({
         type: 'error',
         message: '❌ Lỗi khi lưu truyện!',
@@ -223,7 +223,7 @@ const AppContent = () => {
           message: '✅ AI xử lý xong!',
         });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       const apiError = handleApiError(error);
       setAlertMessage({
         type: 'error',
