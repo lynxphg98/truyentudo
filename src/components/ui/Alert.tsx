@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from '_react';
 import { AlertTriangle, CheckCircle, Info, X } from 'lucide-react';
 import { cn } from '@/util/cn';
 
