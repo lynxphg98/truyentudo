@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes } from '_react';
 import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 
