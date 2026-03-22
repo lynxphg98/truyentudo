@@ -5,9 +5,9 @@ export interface ApiError {
   statusCode?: number;
 }
 
-export const handleApiError = (error: unknown): ApiError => {
-  // Network error
-  if (!navigator.onLine) {
+export const handleApiError = (error: any): ApiError => {
+  // 1. Lỗi kết nối mạng
+  if (typeof window !== 'undefined' && !navigator.onLine) {
     return {
       code: 'OFFLINE',
       message: '❌ Không có kết nối Internet. Vui lòng kiểm tra lại.',
@@ -15,10 +15,12 @@ export const handleApiError = (error: unknown): ApiError => {
     };
   }
 
-  // Axios/Fetch response errors
-  if (typeof error === 'object' && error !== null && 'response' in error) {
-    const status = (error as { response: { status: number } }).response.status;
+  // 2. Xử lý lỗi từ API (Axios/Fetch)
+  if (error && typeof error === 'object' && 'response' in error) {
+    const status = error.response?.status;
+    const responseData = error.response?.data;
 
+    // Lỗi Unauthorized / Forbidden
     if (status === 401 || status === 403) {
       return {
         code: 'UNAUTHORIZED',
@@ -28,6 +30,7 @@ export const handleApiError = (error: unknown): ApiError => {
       };
     }
 
+    // Lỗi Rate Limit (Quá nhiều yêu cầu)
     if (status === 429) {
       return {
         code: 'RATE_LIMIT',
@@ -37,27 +40,29 @@ export const handleApiError = (error: unknown): ApiError => {
       };
     }
 
+    // Lỗi Server (Đoạn này đã được sửa lại)
     if (status === 500 || status === 502 || status === 503) {
       return {
         code: 'SERVER_ERROR',
         message: '🔧 Lỗi server. Vui lòng thử lại sau.',
-const handleError = (error: AxiosError): ApiError => {
+        shouldRetry: true, // Thường lỗi server thì nên cho phép thử lại
         statusCode: status,
       };
     }
 
+    // Các lỗi Client khác (4xx)
     if (status >= 400 && status < 500) {
       return {
         code: 'CLIENT_ERROR',
-        message: error.response.data?.message || '❌ Yêu cầu không hợp lệ.',
+        message: responseData?.message || '❌ Yêu cầu không hợp lệ.',
         shouldRetry: false,
         statusCode: status,
       };
     }
   }
 
-  // Timeout
-  if (error.code === 'ECONNABORTED' || error.message?.includes('timeout')) {
+  // 3. Lỗi Timeout
+  if (error?.code === 'ECONNABORTED' || error?.message?.includes('timeout')) {
     return {
       code: 'TIMEOUT',
       message: '⏱️ Yêu cầu quá lâu. Vui lòng thử lại.',
@@ -65,10 +70,10 @@ const handleError = (error: AxiosError): ApiError => {
     };
   }
 
-  // Generic error
+  // 4. Lỗi không xác định
   return {
     code: 'UNKNOWN',
-    message: error.message || '❌ Có lỗi xảy ra. Vui lòng thử lại.',
+    message: error?.message || '❌ Có lỗi xảy ra. Vui lòng thử lại.',
     shouldRetry: false,
   };
 };
