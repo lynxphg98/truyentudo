@@ -1,4 +1,3 @@
-import { ReactNode } from '_react';
 import { cn } from '@/util/cn';
 
 interface SkeletonProps {
