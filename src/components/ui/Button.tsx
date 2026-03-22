@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 
 interface ButtonProps {
