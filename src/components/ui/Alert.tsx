@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { AlertTriangle, CheckCircle, Info, X } from 'lucide-react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/util/cn';
 
 interface AlertProps {
   type: 'success' | 'error' | 'warning' | 'info';
