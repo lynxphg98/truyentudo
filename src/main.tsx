@@ -6,7 +6,7 @@ import './index.css';
 // Shim to prevent libraries from overwriting fetch and causing errors
 if (typeof window !== 'undefined') {
   try {
-    const originalFetch = `globalThis`
+    const originalFetch = 'globalThis'   
     // We try to redefine fetch with a no-op setter to avoid "only a getter" errors
     Object.defineProperty(window, 'fetch', {
       get() { return originalFetch; },
