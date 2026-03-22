@@ -11,28 +11,28 @@ export const storage = {
     const data = localStorage.getItem('characters');
     return data ? JSON.parse(data) : [];
   },
-  saveCharacters: (characters: any[]) => {
+  saveCharacters: (characters: unkown[]) => {
     localStorage.setItem('characters', JSON.stringify(characters));
   },
   getAIRules: () => {
     const data = localStorage.getItem('ai_rules');
     return data ? JSON.parse(data) : [];
   },
-  saveAIRules: (rules: any[]) => {
+  saveAIRules: (rules: unkown[]) => {
     localStorage.setItem('ai_rules', JSON.stringify(rules));
   },
   getStyleReferences: () => {
     const data = localStorage.getItem('style_references');
     return data ? JSON.parse(data) : [];
   },
-  saveStyleReferences: (refs: any[]) => {
+  saveStyleReferences: (refs: unkown[]) => {
     localStorage.setItem('style_references', JSON.stringify(refs));
   },
   getTranslationNames: () => {
     const data = localStorage.getItem('translation_names');
     return data ? JSON.parse(data) : [];
   },
-  saveTranslationNames: (names: any[]) => {
+  saveTranslationNames: (names: unkown[]) => {
     localStorage.setItem('translation_names', JSON.stringify(names));
   },
   
@@ -56,7 +56,7 @@ export const storage = {
   },
   
   // Import data from JSON
-  importData: (jsonData: any) => {
+  importData: (jsonData: unkown) => {
     if (jsonData.stories) storage.saveStories(jsonData.stories);
     if (jsonData.characters) storage.saveCharacters(jsonData.characters);
     if (jsonData.ai_rules) storage.saveAIRules(jsonData.ai_rules);
