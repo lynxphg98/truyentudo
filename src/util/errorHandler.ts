@@ -5,7 +5,7 @@ export interface ApiError {
   statusCode?: number;
 }
 
-export const handleApiError = (error: any): ApiError => {
+export const handleApiError = (error: unknown): ApiError => {
   // Network error
   if (!navigator.onLine) {
     return {
@@ -16,8 +16,8 @@ export const handleApiError = (error: any): ApiError => {
   }
 
   // Axios/Fetch response errors
-  if (error.response) {
-    const status = error.response.status;
+  if (typeof error === 'object' && error !== null && 'response' in error && (error as any).response) {
+    const status = (error as any).response.status;
 
     if (status === 401 || status === 403) {
       return {
@@ -73,7 +73,7 @@ export const handleApiError = (error: any): ApiError => {
   };
 };
 
-export const shouldRetryRequest = (error: any): boolean => {
+export const shouldRetryRequest = (error: unknown): boolean => {
   const apiError = handleApiError(error);
   return apiError.shouldRetry;
 };
