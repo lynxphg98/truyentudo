@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode } from '_react';
 import {
   Plus, BookOpen, Edit3, Trash2, User, Users, Settings,
   Download, Upload, Languages, HelpCircle, Moon, Sun, Pencil,
@@ -136,7 +136,7 @@ const AppContent = () => {
 
   // ✅ Load từ optimized storage
   useEffect(() => {
-    document.title = '🎭 Truyện Tự Do - Cổng Sáng Tác AI Đa Năng';
+    document.title = '🎭 Truyện Tự Do - Cổng Truyện AI Đa Năng';
     const favicon = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
     if (favicon)
       favicon.href = 'https://api.dicebear.com/7.x/initials/svg?seed=TTD&backgroundColor=4f46e5';
