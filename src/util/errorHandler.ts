@@ -41,7 +41,7 @@ export const handleApiError = (error: unknown): ApiError => {
       return {
         code: 'SERVER_ERROR',
         message: '🔧 Lỗi server. Vui lòng thử lại sau.',
-        shouldRetry: true,
+const handleError = (error: AxiosError): ApiError => {
         statusCode: status,
       };
     }
