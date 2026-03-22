@@ -16,21 +16,55 @@ export const handleApiError = (error: unknown): ApiError => {
   }
 
   // Axios/Fetch response errors
-  if (typeof error === 'object' && error !== null && 'response' in error && (error as any).response) {
-    const status = (error as any).response.status;
+  const response =
+    typeof error === 'object' &&
+    error !== null &&
+    'response' in error &&
+    (error as any).response
+      ? (error as any).response
+      : null;
 
-    if (status === 401 || status === 403) {
-      return {
+  if (response) {
+    const status: number = response.status;
+
+    const statusErrorMap: Record<number, Omit<ApiError, 'statusCode'>> = {
+      401: {
         code: 'UNAUTHORIZED',
         message: '❌ API Key không hợp lệ hoặc hết hạn. Vui lòng kiểm tra lại.',
         shouldRetry: false,
-        statusCode: status,
-      };
-    }
-
-    if (status === 429) {
-      return {
+      },
+      403: {
+        code: 'UNAUTHORIZED',
+        message: '❌ API Key không hợp lệ hoặc hết hạn. Vui lòng kiểm tra lại.',
+        shouldRetry: false,
+      },
+      429: {
         code: 'RATE_LIMIT',
+        message: '❌ Quá nhiều yêu cầu. Vui lòng thử lại sau.',
+        shouldRetry: true,
+      },
+    };
+
+    const defaultError: Omit<ApiError, 'statusCode'> = {
+      code: 'SERVER_ERROR',
+      message: '❌ Đã xảy ra sự cố. Vui lòng thử lại sau.',
+      shouldRetry: false,
+    };
+
+    const baseError = statusErrorMap[status] || defaultError;
+
+    return status in statusErrorMap
+      ? { ...baseError, statusCode: status }
+      : baseError;
+  }
+
+  // Fallback for unknown errors
+  return {
+    code: 'UNKNOWN_ERROR',
+    message: '❌ Đã xảy ra lỗi không xác định. Vui lòng thử lại.',
+    shouldRetry: false,
+  };
+};
         message: '⏱️ Hết hạn mức API. Vui lòng chờ một chút rồi thử lại.',
         shouldRetry: true,
         statusCode: status,
