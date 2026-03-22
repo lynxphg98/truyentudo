@@ -34,14 +34,14 @@ export const Button = ({
 
   const variantClasses = {
     // 🔵 PRIMARY - Always visible
-    primary: 'bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 focus:ring-indigo-500',
+    primary: 'bg-orange-600 text-white hover:bg-orange-700 active:scale-95 focus:ring-orange-500',
 
     // 🟢 SECONDARY - HIGH CONTRAST in dark mode
     secondary: cn(
       theme === 'dark'
-        ? 'bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95'
-        : 'bg-slate-200 text-slate-900 hover:bg-slate-300 active:scale-95',
-      'focus:ring-indigo-500'
+        ? 'bg-orange-600 text-white hover:bg-orange-700 active:scale-95'
+        : 'bg-amber-100 text-amber-900 hover:bg-amber-200 active:scale-95',
+      'focus:ring-orange-500'
     ),
 
     // 🔴 DANGER
@@ -51,16 +51,16 @@ export const Button = ({
     ghost: cn(
       theme === 'dark'
         ? 'bg-slate-700/50 text-slate-100 border border-slate-600 hover:bg-slate-700 hover:border-slate-500 active:scale-95'
-        : 'bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100 active:scale-95',
-      'focus:ring-slate-400'
+        : 'bg-white text-slate-700 border border-orange-100 hover:bg-orange-50 active:scale-95',
+      'focus:ring-orange-300'
     ),
 
     // 📌 OUTLINE
     outline: cn(
       theme === 'dark'
-        ? 'bg-transparent text-indigo-300 border-2 border-indigo-500 hover:bg-indigo-600/20 active:scale-95'
-        : 'bg-transparent text-indigo-600 border-2 border-indigo-600 hover:bg-indigo-50 active:scale-95',
-      'focus:ring-indigo-500'
+        ? 'bg-transparent text-orange-300 border-2 border-orange-500 hover:bg-orange-600/20 active:scale-95'
+        : 'bg-transparent text-orange-700 border-2 border-orange-400 hover:bg-orange-50 active:scale-95',
+      'focus:ring-orange-500'
     ),
   };
 
