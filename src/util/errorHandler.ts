@@ -41,6 +41,7 @@ export const handleApiError = (error: unknown): ApiError => {
       429: {
         code: 'RATE_LIMIT',
         message: '❌ Quá nhiều yêu cầu. Vui lòng thử lại sau.',
+const handleError = (error: AxiosError): ApiError => {
         shouldRetry: true,
       },
     };
