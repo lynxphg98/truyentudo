@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import StorageManager from '@/utils/storage';
+import StorageManager from '@/util/storage';
 
 export interface User {
   uid: string;
