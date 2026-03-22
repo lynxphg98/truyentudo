@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from '_react';
 import { cn } from '@/util/cn';
 import { useAuth } from '@/hooks/useAuth';
 
