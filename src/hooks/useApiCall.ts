@@ -44,7 +44,7 @@ export const useApiCall = <T,>(): UseApiCallReturn<T> => {
     setLoading(false);
   }, []);
 
-  const retry = useCallback(await using (): Promise<T | null> => {
+  const retry = async (await using (): Promise<T | null> => {
     if (!lastFn) return null;
     return call(lastFn);
   }, [lastFn, call]);
