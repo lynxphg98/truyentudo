@@ -20,10 +20,11 @@ if (typeof window !== 'undefined') {
   }
 }
 
-const rootElement = document.getElementById ( 'root ' ) ;   
-nếu ( ! rootElement ) {  
-  ném lỗi mới ( 'Không tìm thấy phần tử gốc' );  
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Root element not found');
 }
+createRoot(rootElement).render(
 createRoot ( rootElement ). render (
   <StrictMode>
     <App />
